@@ -36,14 +36,15 @@ class _LayoutScreenState extends State<LayoutScreen> {
           ),
           body: tabs[currentIndex],
           floatingActionButton: Transform.translate(
-              offset: Offset(15,48),
+              offset: Offset(15,30),
               child: FloatingActionButton(onPressed: () {  },backgroundColor: ColorManger.blue,
               child: Icon(Icons.add,size: 30.0,),
               )),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: Container(
-            height: 100.0,
+            height: 70.0,
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
                 IconButton(onPressed: (){}, icon: Icon(Icons.menu,size: 35,)),
