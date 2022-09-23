@@ -36,39 +36,46 @@ class _LayoutScreenState extends State<LayoutScreen> {
           ),
           body: tabs[currentIndex],
           floatingActionButton: Transform.translate(
-              offset: Offset(15,55),
+              offset: Offset(15,48),
               child: FloatingActionButton(onPressed: () {  },backgroundColor: ColorManger.blue,
               child: Icon(Icons.add,size: 30.0,),
               )),
           floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: Row(
-            children: [
+          bottomNavigationBar: Container(
+            height: 100.0,
+            child: Row(
+              children: [
 
-              IconButton(onPressed: (){}, icon: Icon(Icons.menu,size: 35,)),
-            spaceWidth(10.0),
-              Container(
-               padding: const EdgeInsets.symmetric(vertical: 25.0),
-                width: mediaWidth(context: context,width: .8),
-                child: BottomNavigationBar(
-                    currentIndex: currentIndex,
-                    onTap: (value){
-                      setState(() {
-                        currentIndex = value;
-                      });
-                    },
-                    unselectedItemColor: ColorManger.grey,
-                    selectedItemColor: ColorManger.black,
-                    items: [
-                  BottomNavigationBarItem(icon:
-                  Transform.translate(
-                      offset: Offset(-25,5),
-                      child: SvgPicture.asset(ImageManger.home,color: currentIndex==0? ColorManger.black:ColorManger.grey,)),label: ""),
-                  BottomNavigationBarItem(icon: Transform.translate(
-                      offset: Offset(25,7),
-                      child: Image.asset(ImageManger.cal_png,color: currentIndex==1? ColorManger.black:ColorManger.grey)),label: ""),
-                ]),
-              )
-            ],
+                IconButton(onPressed: (){}, icon: Icon(Icons.menu,size: 35,)),
+              spaceWidth(10.0),
+                Container(
+                 padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  width: mediaWidth(context: context,width: .8),
+                  height: 60,
+                  alignment: Alignment.topCenter,
+                  child: BottomNavigationBar(
+                    elevation: 0,
+                      selectedFontSize: 0,
+                      currentIndex: currentIndex,
+                      onTap: (value){
+                        setState(() {
+                          currentIndex = value;
+                        });
+                      },
+                      unselectedItemColor: ColorManger.grey,
+                      selectedItemColor: ColorManger.black,
+                      items: [
+                    BottomNavigationBarItem(icon:
+                    Transform.translate(
+                        offset: Offset(-25,0),
+                        child: SvgPicture.asset(ImageManger.home,color: currentIndex==0? ColorManger.black:ColorManger.grey,)),label: ""),
+                    BottomNavigationBarItem(icon: Transform.translate(
+                        offset: Offset(25,2),
+                        child: Image.asset(ImageManger.cal_png,color: currentIndex==1? ColorManger.black:ColorManger.grey)),label: ""),
+                  ]),
+                )
+              ],
+            ),
           )
         ),
       ),
